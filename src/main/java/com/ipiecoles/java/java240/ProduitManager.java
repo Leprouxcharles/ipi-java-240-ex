@@ -9,9 +9,14 @@ public class ProduitManager {
 
     private List<Produit> produits = new ArrayList<>();
 
-    private WebPageManager webPageManager = new WebPageManager();
+    private WebPageManager webPageManager;
 
-    private BitcoinService bitcoinService = new BitcoinService();
+    private BitcoinService bitcoinService;
+
+    public ProduitManager(BitcoinService bitcoinService, WebPageManager webPageManager) {
+        this.bitcoinService = bitcoinService;
+        this.webPageManager = webPageManager;
+    }
 
 
     /**

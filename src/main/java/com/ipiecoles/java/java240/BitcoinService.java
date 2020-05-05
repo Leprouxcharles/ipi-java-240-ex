@@ -6,9 +6,20 @@ public class BitcoinService {
 
     private Double rate = null;
 
+    public Boolean getForceRefresh() {
+        return forceRefresh;
+    }
+
+    public void setForceRefresh(Boolean forceRefresh) {
+        this.forceRefresh = forceRefresh;
+    }
+
     private Boolean forceRefresh = false;
 
     private WebPageManager webPageManager = new WebPageManager();
+
+    public BitcoinService(WebPageManager webPageManager) {
+    }
 
     /**
      * Méthode qui renvoie le cours du Bitcoin
