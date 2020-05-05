@@ -1,14 +1,27 @@
 package com.ipiecoles.java.java240;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.*;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+@Component
+public class ConsoleRunner implements CommandLineRunner {
 
-    public static void main(String[] args) throws IOException {
+    @Autowired
+    private ProduitManager produitManager;
+
+    @Resource
+    private BitcoinService bitcoinServiceWithoutCache;
+
+
+    public void run(String... args) throws IOException {
+        // Point d'entrée de votre application en ligne de commande.
+
         //Configuration Java
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         BitcoinService bitcoinService = ctx.getBean("bitcoinServiceNoCache",BitcoinService.class);
@@ -50,4 +63,5 @@ public class Main {
             }
         }
     }
+
 }
